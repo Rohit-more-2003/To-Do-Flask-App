@@ -10,8 +10,8 @@
     <h3>Keep Track of You Tasks</h3>
     <hr>
     <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Add Task</a></li>
+        <li><a href="{{ url_for('index') }}">Tasks</a></li>
+        <li><a href="{{ url_for('add_task') }}">Add Task</a></li>
     </ul>
 
     {% block main %}
