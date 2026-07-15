@@ -17,6 +17,17 @@ db = SQLAlchemy(app=app) # initiated db instance
 from routes import *
 
 
+def create_database():
+    """
+    Creates a database if it does not exists and connects with flask app,
+    else just connects with flask app.
+    """
+
+    # app.app_context determines the action is done when the app runs
+    with app.app_context():
+        db.create_all()
+
 
 if __name__ == "__main__":
+    create_database()
     app.run(debug=True)
