@@ -7,8 +7,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # index_path = os.get_
     return render_template('index.html', current_title="Custom Title")
+
+
+@app.route('/add')
+def add_task():
+    return render_template('add.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
