@@ -2,11 +2,16 @@
 
 {% block main %}
 <p>Add a New Task</p>
-    <form action="/add" method="">
+    <form action="/add" method="post">
         <!-- Using csrf_token() is necessary for wtforms and requires a secret key to work -->
         {{ form.csrf_token() }}
         {{ form.title.label }}
         {{ form.title }}
         {{ form.submit }}
     </form>
+    
+{% if title %}
+    <h1>{{ title }}</h1>
+{% endif %}
+
 {% endblock main %}
