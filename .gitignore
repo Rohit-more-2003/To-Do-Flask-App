@@ -2,3 +2,4 @@
 .idea
 templates/starter
 __pycache__
+instance
