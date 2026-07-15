@@ -1,18 +1,13 @@
-from flask import Flask, render_template
-import os
+from flask import Flask
+
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret-key' # necessary to use csrf_token of the form
 
 
-@app.route('/')
-def index():
-    return render_template('index.html', current_title="Custom Title")
+from routes import *
 
-
-@app.route('/add')
-def add_task():
-    return render_template('add.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
