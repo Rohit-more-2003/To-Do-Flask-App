@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, flash, get_flashed_messages
 from datetime import datetime, UTC
 
 from app import app, db
@@ -22,6 +22,18 @@ def add_task():
         db.session.add(task)
         db.session.commit()
 
+        flash("Task added to database successfully!")
+
         return redirect(url_for('index'))
 
     return render_template('add.html', form=form)
+
+
+@app.route('/edit', methods=["GET", "POST"])
+def edit_task():
+    pass
+
+
+@app.route('/delete', methods=["GET", "POST"])
+def delete_task():
+    pass

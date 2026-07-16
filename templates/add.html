@@ -1,17 +1,18 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h3>Add a New Task</h3>
+<div class="container-fluid">
     <form action="{{ url_for('add_task') }}" method="post">
-        <!-- Using csrf_token() is necessary for wtforms and requires a secret key to work -->
-        {{ form.csrf_token() }}
-        {{ form.title.label }}
-        {{ form.title }}
-        {{ form.submit }}
+        {{ form.csrf_token }}
+        <div class="row">
+            <h3>Add Task</h3>
+            <div class="col">
+                {{ form.title(class="form-control") }}
+            </div>
+            <div class="col">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </div>
     </form>
-    
-{% if title %}
-    <h1>{{ title }}</h1>
-{% endif %}
-
-{% endblock main %}
+</div>
+{% endblock  %}
