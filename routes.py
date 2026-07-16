@@ -29,9 +29,12 @@ def add_task():
     return render_template('add.html', form=form)
 
 
-@app.route('/edit', methods=["GET", "POST"])
-def edit_task():
-    pass
+@app.route('/edit/<int:task_id>')
+def edit_task(task_id):
+    task = Task.query.get(task_id)
+    # print(task)
+
+    return redirect(url_for('index'))
 
 
 @app.route('/delete', methods=["GET", "POST"])
