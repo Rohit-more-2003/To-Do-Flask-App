@@ -47,13 +47,33 @@ def edit_task(task_id):
             return redirect(url_for('index'))
 
         form.title.data = task.title
-        form.title.date = task.date
 
         return render_template('edit.html', task_id=task_id, form=form)
+
+    else:
+        flash("Task Not Found!")    
 
     return redirect(url_for('index'))
 
 
-@app.route('/delete', methods=["GET", "POST"])
-def delete_task():
-    pass
+@app.route('/delete/<int:task_id>', methods=["GET", "POST"])
+def delete_task(task_id):
+    task = Task.query.get(task_id)
+    # print(task)
+
+    form = forms.DeleteTaskForm()
+
+    if task:
+        if form.validate_on_submit():
+            db.session.delete(task)
+            db.session.commit()
+
+            flash('Task has been deleted successfully!')
+            return redirect(url_for('index'))
+
+        return render_template('delete.html', task_id=task_id, form=form, title=task.title)
+    
+    else:
+        flash("Task Not Found!")
+
+    return redirect(url_for('index'))

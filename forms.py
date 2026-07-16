@@ -8,3 +8,7 @@ from wtforms.validators import DataRequired # module to state if value can't be 
 class AddTaskForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     submit = SubmitField('Submit')
+    
+
+class DeleteTaskForm(FlaskForm):
+    submit = SubmitField('Submit')
