@@ -6,6 +6,7 @@ import forms
 from models import Task
 
 @app.route('/')
+@app.route('/index')
 def index():
     tasks = Task.query.all()
 
