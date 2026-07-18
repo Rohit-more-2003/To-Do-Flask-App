@@ -53,8 +53,8 @@ Make sure the following are installed:
 
 4. Open the app in your browser:
 
-   - Flask server: http://127.0.0.1:5000
-   - Or: http://localhost:5000
+   - Flask server: <http://127.0.0.1:5000>
+   - Or: <http://localhost:5000>
 
 The app will automatically create the SQLite database when it starts.
 
@@ -76,8 +76,8 @@ docker run -p 5000:5000 --name todo-flask-app todo-flask-app
 
 Open your browser and go to:
 
-- Flask server: http://127.0.0.1:5000
-- Or: http://localhost:5000
+- Flask server: <http://127.0.0.1:5000>
+- Or: <http://localhost:5000>
 
 ### Stop or remove the container
 
